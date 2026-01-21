@@ -3,7 +3,7 @@ name: Saham Scanner IHSG
 on:
   schedule:
     # Berjalan Senin-Jumat jam 08:45 UTC (15:45 WIB)
-    - cron: '30 16 * * 1-5'
+    - cron: '40 16 * * 1-5'
     # Waktu ini pas untuk screening sebelum market tutup (16:00 WIB)
     - cron: '45 8 * * 1-5'
   workflow_dispatch: # Memungkinkan Anda menjalankan manual kapan saja
