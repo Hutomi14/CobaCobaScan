@@ -1,0 +1,27 @@
+name: Saham IHSG Scanner
+
+on:
+  schedule:
+    # Berjalan Senin-Jumat jam 08:40 UTC (15:40 WIB)
+    - cron: '40 8 * * 1-5'
+  workflow_dispatch: # Tombol manual jika ingin jalankan kapan saja
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      - name: Install dependencies
+        run: |
+          pip install yfinance pandas numpy
+
+      - name: Run Stock Scanner
+        run: python scanner.py
